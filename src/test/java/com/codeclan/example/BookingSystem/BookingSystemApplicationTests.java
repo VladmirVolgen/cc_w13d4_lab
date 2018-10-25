@@ -45,4 +45,9 @@ public class BookingSystemApplicationTests {
 		List<Customer> result = customerRepository.GetCustomersByCourse(1L);
 	}
 
+	@Test
+	public void canGetCiursesByCustomer() {
+		List<Course> result = courseRepository.getCoursesByCustomer(1L);
+	}
+
 }
