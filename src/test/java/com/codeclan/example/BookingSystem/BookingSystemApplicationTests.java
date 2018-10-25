@@ -3,6 +3,7 @@ package com.codeclan.example.BookingSystem;
 import com.codeclan.example.BookingSystem.models.Booking;
 import com.codeclan.example.BookingSystem.models.Course;
 import com.codeclan.example.BookingSystem.models.Customer;
+import com.codeclan.example.BookingSystem.repositories.bookingRepository.BookingRepository;
 import com.codeclan.example.BookingSystem.repositories.courseRepository.CourseRepository;
 import com.codeclan.example.BookingSystem.repositories.customerRepository.CustomerRepository;
 import org.junit.Test;
@@ -23,6 +24,8 @@ public class BookingSystemApplicationTests {
 	CourseRepository courseRepository;
 	@Autowired
 	CustomerRepository customerRepository;
+	@Autowired
+	BookingRepository bookingRepository;
 
 	@Test
 	public void contextLoads() {
@@ -46,8 +49,12 @@ public class BookingSystemApplicationTests {
 	}
 
 	@Test
-	public void canGetCiursesByCustomer() {
+	public void canGetCoursesByCustomer() {
 		List<Course> result = courseRepository.getCoursesByCustomer(1L);
 	}
 
+	@Test
+	public void canGetBookingsByDate() {
+		List<Booking> result = bookingRepository.getBookingsByDate("25/10/18");
+	}
 }
