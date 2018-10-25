@@ -20,4 +20,9 @@ public class CustomerController {
     public List<Customer> GetCustomersByCourse(@PathVariable Long courseId) {
         return customerRepository.GetCustomersByCourse(courseId);
     }
+
+    @GetMapping(value = "course/{courseId}/town/{town}")
+    public List<Customer> GetCustomersByTownAndCourse(@PathVariable String town, @PathVariable Long courseId) {
+        return customerRepository.GetCustomersByTownAndCourse(town, courseId);
+    }
 }
