@@ -4,6 +4,7 @@ import com.codeclan.example.BookingSystem.models.Booking;
 import com.codeclan.example.BookingSystem.models.Course;
 import com.codeclan.example.BookingSystem.models.Customer;
 import com.codeclan.example.BookingSystem.repositories.courseRepository.CourseRepository;
+import com.codeclan.example.BookingSystem.repositories.customerRepository.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class BookingSystemApplicationTests {
 
 	@Autowired
 	CourseRepository courseRepository;
+	@Autowired
+	CustomerRepository customerRepository;
 
 	@Test
 	public void contextLoads() {
@@ -35,6 +38,11 @@ public class BookingSystemApplicationTests {
 	@Test
 	public void canGetCourseByRating() {
 		List<Course> result = courseRepository.getCoursesByRating(0);
+	}
+
+	@Test
+	public void canGetCustomerByCourse() {
+		List<Customer> result = customerRepository.GetCustomersByCourse(1L);
 	}
 
 }
